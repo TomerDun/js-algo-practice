@@ -21,4 +21,6 @@ function calculator(x, op, y) {
   }
 }
 
+// Time: O(1); Space: O(1)
+
 exports.solution = calculator;

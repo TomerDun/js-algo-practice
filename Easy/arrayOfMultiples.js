@@ -18,4 +18,6 @@ function arrayOfMultiples(num, len) {
   }
   return arr;
 }
+
+// Time: O(n), Space: O(n) - n is len
 exports.solution = arrayOfMultiples;
