@@ -30,8 +30,32 @@ Notes
 All inputs are strings, no uppercases and all output must be strings.
 */
 
-function encrypt( /*args*/ ) {
+function encrypt(str) {
+
+  // a => 0
+  // e => 1
+  // i => 2
+  // o => 2
+  // u => 3
+
   //your code
+  let output = '';
+  const vowels = {
+    'a': 0,
+    'e': 1,
+    'i': 2,
+    'o': 2,
+    'u': 3,
+  }
+
+  for (let i = 1; i <= str.length; i++) {
+    let newChar = str[str.length - i];
+    if (newChar in vowels) newChar = vowels[newChar];
+    output += newChar;
+  }
+  output += 'aca';
+  return output;
+
 }
 
 exports.solution = encrypt;
