@@ -35,8 +35,28 @@ champions([
 ➞ "Manchester United"
 */
 
-function champions( /*args*/ ) {
+function champions( teams ) {
   //your code
+  let winningTeam;
+  let winningTeamPoints = 0;
+  let winningTeamDiff = 0;
+
+  for (let i in teams) {
+    const teamPoints = teams[i].wins * 3 + teams[i].draws;
+    const teamDiff = teams[i].scored - teams[i].conceded;
+    if (teamPoints > winningTeamPoints) {
+      winningTeam = i;
+      winningTeamPoints = teamPoints;
+      winningTeamDiff = teamDiff;
+    }
+    else if (teamPoints === winningTeamPoints) {
+      if (teamDiff > winningTeamDiff) {
+        winningTeamDiff = teamDiff;
+        winningTeam = i;
+      }
+    }
+  }
+  return teams[winningTeam].name;
 }
 
 exports.solution = champions;
