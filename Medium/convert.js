@@ -12,8 +12,31 @@ Round to the nearest integer.
 If the input is incorrect, return "Error".
 */
 
-function convert( /*args*/ ) {
+function convert( temp ) {
   //your code
+  let newTemp;
+  const code = temp[temp.length - 1];
+  let symbol;
+  let originalNumber = temp.split('°')[0];
+  originalNumber = parseInt(originalNumber);
+
+  if (code === 'F') {
+    newTemp = (originalNumber - 32) * (5/9);
+    symbol = 'C'
+    
+  }
+  else if (code === 'C') {
+    newTemp = (originalNumber * (9/5)) + 32;
+    symbol = 'F'
+  }
+
+  else {
+    return 'Error';
+  }
+
+  newTemp = Math.round(newTemp);
+
+  return `${newTemp}°${symbol}`;
 }
 
 exports.solution = convert;

@@ -10,8 +10,15 @@ isPandigital(90864523148909) ➞ false
 isPandigital(112233445566778899) ➞ false
 */
 
-function isPandigital( /*args*/ ) {
+function isPandigital( num ) {
   //your code
+  const digits = new Set();
+  const numString = num.toString();
+  for (let char of numString) {
+    digits.add(char);
+  }  
+  
+  return digits.size === 10;
 }
 
 exports.solution = isPandigital;
