@@ -43,8 +43,31 @@ The today parameter will always be greater than or equal to the last date in the
 An empty array should return 0.
 */
 
-function currentStreak( /*args*/ ) {
-  //your code
+function currentStreak( currDate, dates ) {
+  if (dates.length < 1) return 0;
+  if(dates[dates.length - 1].date !== currDate) return 0;  
+  if (dates.length < 2) return 1;
+
+  function getDaysDiff(d1, d2) {
+    const d1Date = new Date(d1);
+    const d2Date = new Date(d2);
+
+    let diff = d1Date - d2Date;
+    let daysDiff = Math.floor(diff / (1000 * 60 * 60 * 24));    
+    return daysDiff;  
+  }
+
+  let streak = 1;
+
+  for (let i = dates.length - 1; i > 0; i--) {
+    let daysDiff = getDaysDiff(dates[i].date, dates[i-1].date);      
+    if (daysDiff === 1)  streak ++;
+    else {
+      return streak;
+    }
+  }  
+
+  return streak;
 }
 
 exports.solution = currentStreak;
