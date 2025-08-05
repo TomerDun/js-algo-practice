@@ -45,8 +45,14 @@ An empty array should return 0.
 
 function currentStreak( currDate, dates ) {
   if (dates.length < 1) return 0;
+
+  dates.sort(currDate, nextDate => {  
+    return new Date(currDate) - new Date(nextDate)
+  })
+
   if(dates[dates.length - 1].date !== currDate) return 0;  
   if (dates.length < 2) return 1;
+  
 
   function getDaysDiff(d1, d2) {
     const d1Date = new Date(d1);
