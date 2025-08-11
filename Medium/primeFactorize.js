@@ -14,6 +14,7 @@ The only positive integer which is neither prime nor composite is 1. Return an e
 
 function primeFactorize( /*args*/ ) {
   //your code
+  
 }
 
 exports.solution = primeFactorize;
